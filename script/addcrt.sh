@@ -1,4 +1,12 @@
 #!/bin/bash
+apk update
+apk upgrade	
+apk add curl
+apk add bash
+cat >> .edgerc << 'END'
+${{ secrets.AKAMAI_TOKEN }}
+END
+
 File="/domain/domainlist.txt"
 while IFS= read -r line
 do
