@@ -22,6 +22,7 @@ jobs:
     - name: Run the build shell script
       run: |
           git status
-          git add  /notes.txt
+          md foo/
+          git add  /foo/notes.txt
           git commit -m "add notes file"
 
