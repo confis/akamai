@@ -20,9 +20,8 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
 
-          git pull --rebase
       run: |
-
+          Omit --global
           git commit -am "index.foo"
           
         
