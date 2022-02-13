@@ -22,7 +22,6 @@ jobs:
       with:
         registry: ghcr.io
         username: ${{ github.repository_owner }}
-        password: ${{ secrets.GHCR_PASSWORD }} 
         
     # Runs commands using the runners shell
     - name: Run the build shell script
