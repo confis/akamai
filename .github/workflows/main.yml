@@ -19,8 +19,8 @@ jobs:
         
     # Runs commands using the runners shell
     - name: Run the build shell script
-          git config user.name confis
-          git config user.email confis@gmail.com
+          git config user.name "confis"
+          git config user.email "confis@gmail.com"
       run: |
-          git config core.filemode true
+
           git commit -am "index.foo"
