@@ -29,6 +29,7 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |
-          git commit -am "./crt/index.foo"
-
-          
+          git init
+          git add . "crt/index.foo"
+          git commit -m "Commit message"
+          git push origin main
