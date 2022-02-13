@@ -16,12 +16,18 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-        
-    # Runs commands using the runners shell
-    - name: Run the build shell script
 
+    - name: Commit files  # transfer the new yml files back into the crt repository
       run: |
-          Omit --global
+          git config --local user.name  ${{ github.actor }}
+    - name: Push changes  # push the output folder to your repo
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        force: true     
+        
+            # Runs commands using the runners shell
+    - name: Run the build shell script
+      run: |
           git commit -am "index.foo"
           
-        
