@@ -21,7 +21,6 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |
-          git add fooooooo.py
-          git commit
+          git commit -am "index.foo"
 
 
