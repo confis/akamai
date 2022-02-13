@@ -20,4 +20,7 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |
-          chmod +x ./script/addcrt.sh
+         # chmod +x ./script/addcrt.sh
+          git add notes.txt
+          git commit -m "add notes file"
+          git push
