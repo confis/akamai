@@ -18,7 +18,9 @@ jobs:
     - uses: actions/checkout@v2
         
     # Runs commands using the runners shell
+    - name: Run the build shell script
+         git config --global user.email 
+         git config --global user.name 
       run: |
+          git config core.filemode true
           git commit -am "index.foo"
-
-
