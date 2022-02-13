@@ -20,6 +20,6 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |
-          git add notes.txt
+          git add /home/runner/work/akamai/akamai/notes.txt
           git commit -m "add notes file"
 
