@@ -20,7 +20,7 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
 
-          git config ${{ github.token }}
+          git pull --rebase
       run: |
 
           git commit -am "index.foo"
