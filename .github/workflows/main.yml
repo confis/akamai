@@ -1,18 +1,10 @@
 # This is a basic workflow to help you get started with Actions
-
-name: CI
-
+name: Add SubDomain
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
+    branches: ['master']
+    paths: ['scripts/*.yml', 'scripts/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -22,11 +14,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-            docker run --rm -it -v /.edgerc:/root/.edgerc:ro akamai/shell
-            sh script/addcrt.sh
+    # Runs commands using the runners shell
+    - name: Run the build shell script
+      run: |
+          chmod +x ./scripts/addcrt.sh
