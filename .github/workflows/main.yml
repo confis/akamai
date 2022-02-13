@@ -4,7 +4,7 @@ name: Add SubDomain
 on:
   push:
     branches: ['master']
-    paths: ['scripts/*.yml', 'scripts/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
+    paths: ['script/*.yml', 'script/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -20,4 +20,4 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |
-          chmod +x ./scripts/addcrt.sh
+          chmod +x ./script/addcrt.sh
