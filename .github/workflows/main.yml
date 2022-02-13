@@ -26,8 +26,9 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         force: true     
         
-            # Runs commands using the runners shell
+    # Runs commands using the runners shell
     - name: Run the build shell script
       run: |
-          git commit -am "index.foo"
+          git commit -am "./crt/index.foo"
+
           
