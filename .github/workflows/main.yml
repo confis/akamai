@@ -25,8 +25,8 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |
-          echo "Hello" > index.foo
           cd ./crt
+          echo "Hello" > index.foo
           git add  "index.foo"
           git commit -m "Commit message"
           
