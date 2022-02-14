@@ -29,6 +29,7 @@ jobs:
           replace: "fofofofofofo.com"
           regex: false
           include: "sample.yml"
+          
         
     - name: Echo sample.yml
       run: echo "${{ steps.sample.outputs.content }}" >  sample4.yml
