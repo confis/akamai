@@ -15,5 +15,5 @@ jobs:
     steps:
     # Runs commands using the runners shell
     - name: commit new file
-      run: |   
-           git update-index --chmod +x run.sh
+      run: |      
+           chmod +x "${GITHUB_WORKSPACE}/.github/run.sh"
