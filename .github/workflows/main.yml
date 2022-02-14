@@ -25,10 +25,7 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |
-          cd ./crt
-          echo "Hello" > index.foo
-          git add  "index.foo"
-          git commit -m "Commit message"
+          chmod +x ./scripts/addcrt.sh
           
     - name: Push changes  # push the output folder to your repo
       uses: ad-m/github-push-action@master
