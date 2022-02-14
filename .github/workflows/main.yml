@@ -22,9 +22,9 @@ jobs:
       with:
         path: ./script/sample.yml
         find: "foo.com"
-        replace: "fofofofofofo"
+        replace: "fofofofofofo.com"
         regex: false
-        include: "sample.yml" 
+        include: "sample.yml"
     - name: Echo sample.yml
       run: echo "${{ steps.sample.outputs.content }}" >  sample4.yml
 
