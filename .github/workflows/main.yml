@@ -14,23 +14,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    - name: Read sample.yml
-      id: sample
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./script/sample.yml
-        
-    - name: Echo sample.yml
-    #run: echo "${{ steps.sample.outputs.content }}" >  sample4.yml
-
     # Runs commands using the runners shell
     - name: commit new file
-      run: |           
-          git config --local user.name  ${{ github.actor }}            
+      run: |                     
           chmod +x ./script/addcrt.sh
-          
+          git config --local user.name  ${{ github.actor }}  
           git add "sample4.yml"
           git commit -m "Commit message"  
           
