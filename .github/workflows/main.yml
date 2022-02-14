@@ -24,13 +24,13 @@ jobs:
     #Create a file 
     - name: Create a file 
       run: | 
-          echo ${{ secrets.AKAMAI_TOKEN }} > .edgerc
+          echo ${{ secrets.AKAMAI_TOKEN }} >> .edgerc
     
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |
-         # git add  "index.foo"
-         # git commit -m "Commit message"
+     # git add  "index.foo"
+     # git commit -m "Commit message"
           
     - name: Push changes  # push the output folder to your repo
       uses: ad-m/github-push-action@master
