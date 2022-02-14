@@ -15,6 +15,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - name: run sh script
-      run: chmod +x ./script/addcrt.sh 
+      run: chmod +x ./script/addcrt.sh set -v
       env:
         DOMAIN_NAME: test.com
