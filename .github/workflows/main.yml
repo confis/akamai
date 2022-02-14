@@ -27,14 +27,14 @@ jobs:
         
           cat ./script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > ./crt/$DOMAIN_NAME.yml
           echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
-
-    - name: Run the build shell script
-      run: |
-          git add  "$DOMAIN_NAME.yml"
-          git commit -m "Commit message"
+          echo $DOMAIN_NAME.yml
           
-    - name: Push changes  # push the output folder to your repo
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        force: true
+#    - name: Run the build shell script
+#      run: |
+#          git add  "$DOMAIN_NAME.yml"
+#          git commit -m "Commit message"
+          
+#    - name: Push changes  # push the output folder to your repo #     uses: ad-m/github-push-action@master
+#      with:
+#        github_token: ${{ secrets.GITHUB_TOKEN }}
+#        force: true
