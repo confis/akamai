@@ -24,11 +24,11 @@ jobs:
   #    run: chmod +x ./script/addcrt.sh
       env:
         DOMAIN_NAME: test.com
-        run: |
+    - name:  run and echo file   
+      run: |
           cat ./script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > ./crt/$DOMAIN_NAME.yml
-    - name: echo file
-            echo "$DOMAIN_NAME.yml"
-        
+          echo "$DOMAIN_NAME.yml"
+
  #         cat ./script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > ./crt/$DOMAIN_NAME.yml
  #         echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
  #         echo $DOMAIN_NAME.yml
