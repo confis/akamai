@@ -23,16 +23,15 @@ jobs:
         path: ./script/sample.yml
         
     - name: Echo sample.yml
-    #  run: echo "${{ steps.sample.outputs.content }}" >  sample4.yml
+      run: echo "${{ steps.sample.outputs.content }}" >  sample4.yml
 
     # Runs commands using the runners shell
     - name: commit new file
       run: |           
-          git config --local user.name  ${{ github.actor }}  
+          git config --local user.name  ${{ github.actor }}            
+          chmod +x ./script/addcrt.sh
           git add "sample4.yml"
-          git commit -m "Commit message"          
-          
-    # chmod +x ./script/addcrt.sh
+          git commit -m "Commit message"  
           
     - name: Push changes  # push the output folder to your repo
       uses: ad-m/github-push-action@master
