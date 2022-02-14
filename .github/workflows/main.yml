@@ -1,15 +1,10 @@
 # This is a basic workflow to help you get started with Actions 
 name: Add SubDomain
-env:
-  DOMAIN_NAME: test.com
-   
 # Controls when the workflow will run
 on:
   push:
     branches: ['master']
     paths: ['script/*.yml', 'script/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
-
-  
 jobs:
   # This workflow contains a single job called "build"
 
@@ -20,4 +15,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - name: run sh script
-      run: chmod +x ./script/addcrt.sh
+      run: chmod +x ./script/addcrt.sh 
+      env:
+        DOMAIN_NAME: test.com
