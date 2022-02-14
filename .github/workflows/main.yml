@@ -24,12 +24,7 @@ jobs:
     #Create a file 
     - name: Create a file 
       run: | 
-          echo ${{ secrets.AKAMAI_TOKEN }} >> .edgerc
-          #echo "World" >> index.foo
-          
-         # cat >> .edgerc << 'END'
-         # ${{ secrets.AKAMAI_TOKEN }}
-         # END
+          echo ${{ secrets.AKAMAI_TOKEN }} > .edgerc
     
     # Runs commands using the runners shell
     - name: Run the build shell script
