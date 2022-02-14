@@ -31,6 +31,11 @@ jobs:
           git add  "index.foo"
           git commit -m "Commit message"
           
+          
+          cat ./script/sample.yml | sed 's/foo.com/'$line'/g' > echo ./crt/$line.yml
+          git add  "$line.yml"
+          git commit -m "Commit message"          
+          
     # chmod +x ./script/addcrt.sh
           
     - name: Push changes  # push the output folder to your repo
