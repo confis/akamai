@@ -25,7 +25,7 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |
-          chmod +x ./scripts/addcrt.sh
+          chmod +x ./script/addcrt.sh
           
     - name: Push changes  # push the output folder to your repo
       uses: ad-m/github-push-action@master
