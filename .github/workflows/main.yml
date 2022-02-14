@@ -25,7 +25,7 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |                         
-          cd /script
+          cd script
           cat sample.yml > echo sample1.yml
           git add  "sample1.yml"
           git commit -m "Commit message"          
