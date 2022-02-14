@@ -18,7 +18,7 @@ jobs:
     - name: commit new file
       run: |   
        #   git config --local user.name  ${{ github.actor }}  
-          chmod +x ./run.sh
+          sh run.sh
          # git add "sample4.yml"
          # git commit -m "Commit message"  
           
