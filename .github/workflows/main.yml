@@ -16,4 +16,5 @@ jobs:
     # Runs commands using the runners shell
     - name: commit new file
       run: |      
-           chmod +x "${GITHUB_PATH}/run.sh"
+       echo "${GITHUB_WORKSPACE}"
+          # chmod +x "${GITHUB_WORKSPACE}/run.sh"
