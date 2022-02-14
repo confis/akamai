@@ -1,5 +1,11 @@
 # This is a basic workflow to help you get started with Actions 
 name: Add SubDomain
+
+defaults:
+  run:
+    shell: bash
+    working-directory: script
+
 # Controls when the workflow will run
 on:
   push:
@@ -15,6 +21,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - name: run sh script
-      run: chmod +x ./script/addcrt.sh set -v
+      run: chmod +x ./script/addcrt.sh
       env:
         DOMAIN_NAME: test.com
+        
+          cat ./script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > ./crt/$DOMAIN_NAME.yml
+          echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
