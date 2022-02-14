@@ -21,13 +21,18 @@ jobs:
       uses: juliangruber/read-file-action@v1
       with:
         path: ./script/sample.yml
+        find: "foo.com"
+        replace: "fofofofofofo"
+        regex: false
+        include: "sample.yml" 
     - name: Echo sample.yml
-      run: echo "${{ steps.sample.outputs.content }}" >  sample3.yml
+      run: echo "${{ steps.sample.outputs.content }}" >  sample4.yml
+
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |           
           git config --local user.name  ${{ github.actor }}  
-          git add "sample3.yml"
+          git add "sample4.yml"
           git commit -m "Commit message"          
           
     # chmod +x ./script/addcrt.sh
