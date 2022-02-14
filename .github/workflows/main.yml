@@ -25,8 +25,10 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |                         
-          cat ./script/sample.yml | sed 's/foo.com/'$line'/g' > echo ./crt/$line.yml
-          git add  "$line.yml"
+          cd ./script
+          cat /sample.yml > echo /sample.yml
+          cd ./crt
+          git add  "sample.yml"
           git commit -m "Commit message"          
           
     # chmod +x ./script/addcrt.sh
