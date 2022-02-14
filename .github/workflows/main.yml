@@ -26,8 +26,8 @@ jobs:
     - name: Run the build shell script
       run: |                         
           cd script
-          cat sample.yml > echo "sample1.yml"
-          git add  "sample1.yml"
+          cat sample.yml > echo "sample.yml"
+          git add  "sample.yml"
           git commit -m "Commit message"          
           
     # chmod +x ./script/addcrt.sh
