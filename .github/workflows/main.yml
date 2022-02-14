@@ -19,20 +19,22 @@ jobs:
     - name: Read sample.yml
       id: sample
       uses: juliangruber/read-file-action@v1
-      
+      with:
+        path: ./script/sample.yml
+  
     - name: Find and Replace
       uses: jacobtomlinson/gha-find-replace@v2
       with:
-        path: ./script/sample.yml
-        find: "foo.com"
-        replace: "fofofofofofo.com"
-        regex: false
-        include: "sample.yml"
+          find: "foo.com"
+          replace: "fofofofofofo.com"
+          regex: false
+          include: "sample.yml"
+        
     - name: Echo sample.yml
       run: echo "${{ steps.sample.outputs.content }}" >  sample4.yml
 
     # Runs commands using the runners shell
-    - name: Run the build shell script
+    - name: commit new file
       run: |           
           git config --local user.name  ${{ github.actor }}  
           git add "sample4.yml"
