@@ -15,5 +15,5 @@ jobs:
       - name: "get the domain name"
    #     run: echo "$DOMAIN_NAME"
         run:  |
-          $(cat ./script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > /crt/$DOMAIN_NAME.yml)
+          $(cat akamai/script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > /crt/$DOMAIN_NAME.yml)
           echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
