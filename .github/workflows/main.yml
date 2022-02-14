@@ -6,7 +6,8 @@ on:
     paths: ['script/*.yml', 'script/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
 
 env:
-  DAY_OF_WEEK: Monday
+  # DAY_OF_WEEK: Monday
+    DIMAIN_NAME: test.com
 
 jobs:
   greeting_job:
@@ -15,6 +16,6 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        run: echo "$Greeting $First_Name. Today is $DIMAIN_NAME!"
         env:
           First_Name: Mona
