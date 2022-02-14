@@ -1,8 +1,7 @@
 #!/bin/bash
-File="domainList.txt"
-while IFS= read -r line
-do
-  cat sample.yml | sed 's/foo.com/'$line'/g' > ./crt/$line.yml
- # akamai cps create --file /users/yanivcohen/redirect.folloze.com/crt/$line.yml --contract-id V-40T9211 --force --section default
-  echo "domain: $line"
-done < "$File"
+
+  cat ./script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > ./crt/$DOMAIN_NAME.yml
+  echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
+  git add  "$DOMAIN_NAME.yml"
+  git commit -m "Commit message"  
+    
