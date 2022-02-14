@@ -20,6 +20,15 @@ jobs:
     - name: Commit files  # transfer the new yml files back into the crt repository
       run: |
           git config --local user.name  ${{ github.actor }}
+          
+          
+    #Create a file 
+    - name: Create a file 
+      run: | 
+          echo "Hello" > index.foo
+          echo "World" >> index.foo
+          
+          
     - name: Push changes  # push the output folder to your repo
       uses: ad-m/github-push-action@master
       with:
