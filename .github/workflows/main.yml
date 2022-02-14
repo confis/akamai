@@ -6,16 +6,11 @@ on:
     paths: ['script/*.yml', 'script/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
 
 env:
-  # DAY_OF_WEEK: Monday
     DIMAIN_NAME: test.com
 
 jobs:
   greeting_job:
     runs-on: ubuntu-latest
-    env:
-      Greeting: Hello
     steps:
-      - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $First_Name. Today is $DIMAIN_NAME!"
-        env:
-          First_Name: Mona
+      - name: "get the domain name"
+        run: echo "$DIMAIN_NAME"
