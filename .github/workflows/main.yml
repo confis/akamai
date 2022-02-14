@@ -16,18 +16,20 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    - name: Read sample.yml
+      id: sample
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./script/sample.yml
+    - name: Echo sample.yml
 
-    - name: Commit files  # transfer the new yml files back into the crt repository
-      run: |
-          git config --local user.name  ${{ github.actor }}
-    
-    
     # Runs commands using the runners shell
     - name: Run the build shell script
-      run: |                         
-          cd script
-          echo sample.yml >  sample2.yml
-          git add "sample2.yml"
+
+      run: |           
+          git config --local user.name  ${{ github.actor }}  
+          echo "${{ steps.sample.outputs.content }}" >  sample3.yml
+          git add "sample3.yml"
           git commit -m "Commit message"          
           
     # chmod +x ./script/addcrt.sh
