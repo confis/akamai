@@ -11,20 +11,20 @@ on:
   push:
     branches: ['master']
     paths: ['script/*.yml', 'script/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
-jobs:
+# jobs:
   # This workflow contains a single job called "build"
           
-  build:
+#  build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-  #  - name: run sh script
-  #    run: chmod +x ./script/addcrt.sh
-      env:
-        DOMAIN_NAME: test.com
-        run: echo "$DOMAIN_NAME"
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: Checkout
+#      uses: actions/checkout@v1
+ #  - name: run sh script
+ #    run: chmod +x ./script/addcrt.sh
+ #     env:
+ #       DOMAIN_NAME: test.com
+ #      run: echo "$DOMAIN_NAME"
  #   - name:  run and echo file   
  #     run: |
  #         cat ./script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > ./crt/$DOMAIN_NAME.yml
@@ -47,4 +47,17 @@ jobs:
 #        force: true
 
 
+env:
+  DAY_OF_WEEK: Monday
+
+jobs:
+  greeting_job:
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hello
+    steps:
+      - name: "Say Hello Mona it's Monday"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: Mona
 
