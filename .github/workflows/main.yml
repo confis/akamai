@@ -17,7 +17,7 @@ jobs:
     # Runs commands using the runners shell
     - name: commit new file
       run: |                     
-          chmod +x /script/addcrt.sh
+          chmod +x script/addcrt.sh
           git config --local user.name  ${{ github.actor }}  
           git add "sample4.yml"
           git commit -m "Commit message"  
