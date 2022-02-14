@@ -31,7 +31,7 @@ jobs:
           git add  "index.foo"
           git commit -m "Commit message"
           
-          chmod +x ./script/addcrt.sh
+    # chmod +x ./script/addcrt.sh
           
     - name: Push changes  # push the output folder to your repo
       uses: ad-m/github-push-action@master
