@@ -6,11 +6,14 @@ on:
     paths: ['script/*.yml', 'script/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
 
 env:
-    DIMAIN_NAME: test.com
+    DOMAIN_NAME: test.com
 
 jobs:
   greeting_job:
     runs-on: ubuntu-latest
     steps:
       - name: "get the domain name"
-        run: echo "$DIMAIN_NAME"
+   #     run: echo "$DOMAIN_NAME"
+        run:  |
+          cat ./script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > ./crt/$DOMAIN_NAME.yml
+          echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
