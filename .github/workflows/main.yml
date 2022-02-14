@@ -22,13 +22,11 @@ jobs:
       with:
         path: ./script/sample.yml
     - name: Echo sample.yml
-
+      run: echo "${{ steps.sample.outputs.content }}" >  sample3.yml
     # Runs commands using the runners shell
     - name: Run the build shell script
-
       run: |           
           git config --local user.name  ${{ github.actor }}  
-          echo "${{ steps.sample.outputs.content }}" >  sample3.yml
           git add "sample3.yml"
           git commit -m "Commit message"          
           
