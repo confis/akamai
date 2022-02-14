@@ -16,4 +16,4 @@ jobs:
     # Runs commands using the runners shell
     - name: commit new file
       run: |   
-           chmod +x .run.sh
+           chmod +x ./run.sh
