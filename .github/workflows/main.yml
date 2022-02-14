@@ -19,6 +19,9 @@ jobs:
     - name: Read sample.yml
       id: sample
       uses: juliangruber/read-file-action@v1
+      
+    - name: Find and Replace
+      uses: jacobtomlinson/gha-find-replace@v2
       with:
         path: ./script/sample.yml
         find: "foo.com"
