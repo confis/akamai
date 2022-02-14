@@ -30,7 +30,7 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build shell script
       run: |
-          git add  "index.foo"
+          git add  ./crt/index.foo
           git commit -m "Commit message"
           
     - name: Push changes  # push the output folder to your repo
