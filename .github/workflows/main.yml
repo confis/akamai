@@ -13,7 +13,7 @@ on:
     paths: ['script/*.yml', 'script/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
 jobs:
   # This workflow contains a single job called "build"
-
+          
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -24,10 +24,14 @@ jobs:
   #    run: chmod +x ./script/addcrt.sh
       env:
         DOMAIN_NAME: test.com
+        shell: |
+           echo "$(cat ./script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g')\" >> ./crt/$DOMAIN_NAME.yml
         
-          cat ./script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > ./crt/$DOMAIN_NAME.yml
-          echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
-          echo $DOMAIN_NAME.yml
+ #         cat ./script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > ./crt/$DOMAIN_NAME.yml
+ #         echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
+ #         echo $DOMAIN_NAME.yml
+          
+
           
 #    - name: Run the build shell script
 #      run: |
@@ -38,3 +42,6 @@ jobs:
 #      with:
 #        github_token: ${{ secrets.GITHUB_TOKEN }}
 #        force: true
+
+
+
