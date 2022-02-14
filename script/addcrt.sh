@@ -3,9 +3,10 @@ cat >> .edgerc << 'END'
 ${{ secrets.AKAMAI_TOKEN }}
 END
 
-git add . -A
-git commit -m "$commit_message"
-git push
+cd ./crt
+echo "Hello" > index.foo
+git add  "index.foo"
+git commit -m "Commit message"
 
 #File="domain/domainlist.txt"
 #while IFS= read -r line
