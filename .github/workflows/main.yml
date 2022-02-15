@@ -1,4 +1,4 @@
-name: Greeting on variable day
+name: Add Domain
 
 on:
   push:
@@ -12,8 +12,16 @@ jobs:
   greeting_job:
     runs-on: ubuntu-latest
     steps:
+      - name: "Clone the repository"
+        uses: actions/checkout@v2
+
       - name: "get the domain name"
    #     run: echo "$DOMAIN_NAME"
         run:  |
-          $(cat akamai/script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > /crt/$DOMAIN_NAME.yml)
-          echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
+          echo $GITHUB_WORKSPACE
+          ls $GITHUB_WORKSPACE/script/
+          touch $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml
+          ls -lah $GITHUB_WORKSPACE/crt/
+          $(cat $GITHUB_WORKSPACE/script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml)
+          cat  $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml
+          # echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
