@@ -6,7 +6,7 @@ on:
     paths: ['.github/workflows/*.yml','domain/domainlist.txt',]
 
 env:
-    DOMAIN_NAME: test-me.com
+    DOMAIN_NAME: test-me1.com
     contractId: V-40T9211
     edgeHostnameId: 5032864
     property_name: custom-hostname
