@@ -29,7 +29,7 @@ jobs:
       - name: Run the build shell script
         run: |
             git add  "$GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml"
-            git commit -m "$date - New Domain $DOMAIN_NAME.yml Added"
+            git commit -m "NOW::$(date +'%d-%m-%Y')- New Domain $DOMAIN_NAME.yml Added"
             
       - name: Push changes  # push the output folder to your repo
         uses: ad-m/github-push-action@master
