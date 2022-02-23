@@ -6,7 +6,7 @@ on:
     paths: ['.github/workflows/*.yml','domain/domainlist.txt',]
 
 env:
-    DOMAIN_NAME: test-me1.com
+    DOMAIN_NAME: test-me2.com
     contractId: V-40T9211
     edgeHostnameId: 5032864
     property_name: custom-hostname
@@ -43,4 +43,4 @@ jobs:
       # Apply CRT to Akamai
       - name: Apply CRT to Akamai
         run: |
-          akamai cps create --file $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml --contract-id $contractId --force --section default
+          sh akamai cps create --file $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml --contract-id $contractId --force --section default
