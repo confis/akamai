@@ -3,10 +3,13 @@ name: Add Domain
 on:
   push:
     branches: ['master']
-    paths: ['script/*.yml', 'script/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
+    paths: ['.github/workflows/*.yml','domain/domainlist.txt',]
 
 env:
     DOMAIN_NAME: test-me.com
+    contractId: V-40T9211
+    edgeHostnameId: 5032864
+    property_name: custom-hostname
 
 jobs:
   greeting_job:
@@ -36,4 +39,8 @@ jobs:
         with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             force: true
-
+            
+      # Apply CRT to Akamai
+      - name: Apply CRT to Akamai
+        run: |
+          akamai cps create --file $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml --contract-id $contractId --force --section default
