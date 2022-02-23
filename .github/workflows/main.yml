@@ -18,10 +18,20 @@ jobs:
       - name: "get the domain name"
    #     run: echo "$DOMAIN_NAME"
         run:  |
+          git config --local user.name  ${{ github.actor }}
           echo $GITHUB_WORKSPACE
           ls $GITHUB_WORKSPACE/script/
           touch $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml
           ls -lah $GITHUB_WORKSPACE/crt/
           $(cat $GITHUB_WORKSPACE/script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml)
-          cat  $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml
-          # echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
+  #        cat  $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml
+  #       echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
+      - name: Create a file       
+          git add  "$DOMAIN_NAME.yml"
+          git commit -m "New Domain Added"
+      - name: Push changes  # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+
