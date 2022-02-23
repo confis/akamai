@@ -6,7 +6,7 @@ on:
     paths: ['script/*.yml', 'script/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
 
 env:
-    DOMAIN_NAME: testme.com
+    DOMAIN_NAME: test.com
 
 jobs:
   greeting_job:
