@@ -6,7 +6,7 @@ on:
     paths: ['script/*.yml', 'script/*.sh', '.github/workflows/*.yml','domain/domainlist.txt',]
 
 env:
-    DOMAIN_NAME: testme2.com
+    DOMAIN_NAME: testme3.com
 
 jobs:
   greeting_job:
@@ -15,17 +15,16 @@ jobs:
       - name: "Clone the repository"
         uses: actions/checkout@v2
 
-      - name: "get the domain name"
-   #     run: echo "$DOMAIN_NAME"
+      - name: "Get the domain name and create yml file for the crt"
         run:  |
           git config --local user.name  ${{ github.actor }}
-          echo $GITHUB_WORKSPACE
+          #   echo $GITHUB_WORKSPACE
           ls $GITHUB_WORKSPACE/script/
           touch $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml
           ls -lah $GITHUB_WORKSPACE/crt/
           $(cat $GITHUB_WORKSPACE/script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml)
           cat  $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml
-          echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
+      #    echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
       # Runs commands using the runners shell
       - name: Run the build shell script
         run: |
