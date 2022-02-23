@@ -25,11 +25,11 @@ jobs:
           ls -lah $GITHUB_WORKSPACE/crt/
           $(cat $GITHUB_WORKSPACE/script/sample.yml | sed 's/foo.com/'$DOMAIN_NAME'/g' > $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml)
           cat  $GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml
-  #       echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
+          echo $DOMAIN_NAME.yml > $DOMAIN_NAME.yml
       # Runs commands using the runners shell
       - name: Run the build shell script
         run: |
-            git add  "$DOMAIN_NAME.yml"
+            git add  "$GITHUB_WORKSPACE/crt/$DOMAIN_NAME.yml"
             git commit -m "New Domain Added"
             
       - name: Push changes  # push the output folder to your repo
